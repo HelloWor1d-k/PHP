@@ -1,3 +1,4 @@
+# 對字串做查詢 修改 切割
 <?php
 echo str_replace("world","John","Hello World!");
   ?>
@@ -12,3 +13,4 @@ echo $a; //計算目標字串長度
 
 $b =substr(HelloPHP,1,2);
       //從索引1開始切割 切割長度為2
+
