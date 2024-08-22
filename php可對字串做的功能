@@ -1,0 +1,14 @@
+<?php
+echo str_replace("world","John","Hello World!");
+  ?>
+   //第一個為要被替換的目標 第二個為替換的字串 第三個為被搜索的字串
+<?php
+echo strpos("I love php, I love php too!","php");
+?> //第一個為被查找的字符串 第二個為被查找的字符第一次出現的位置
+      也可用於檢查字串有無出現在目標字串裡
+
+$a = strlen(helloworld);
+echo $a; //計算目標字串長度
+
+$b =substr(HelloPHP,1,2);
+      //從索引1開始切割 切割長度為2
