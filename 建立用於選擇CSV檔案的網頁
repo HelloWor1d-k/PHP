@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>CSV文件上傳與顯示</title>
+</head>
+<body>
+<h1>上傳並顯示CSV文件內容</h1>
+<form action="" method="post" enctype="multipart/form-data">
+<label for="file">選擇csv文件:</label>
+<input type="file"id="file" name="file" accept=".csv" required><br><br>
+<button type="submit" name="submit">上傳並顯示</button>
+</form>
