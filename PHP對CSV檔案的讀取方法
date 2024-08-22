@@ -1,0 +1,29 @@
+//讀取 CSV文件內容
+$filePath = $file["tmp_name"];
+if(($handle = fopen($filePath,"r"))!==false){
+	echo"<h2>文件內容:</h2>";
+	echo"<table border='1'>";
+ //讀取CSV文件的標頭
+	if(($header = fgetcsv($handle,1000,","))!==false){
+	echo"<tr>";
+	foreach($header as $col){
+	echo"<th>".htmlspecialchars($col)."</th>";
+	}
+	echo"</tr>";
+	}
+ //讀取CSV文件的每一行數據
+	while(($data = fgetcsv($handle,1000,","))!==false){
+	echo"<tr>";
+	foreach($data as $col){
+	      echo"<td>".htmlspecialchars($col)."</td>";
+ }
+    echo"</tr>";
+  }
+      echo "</table>";
+      fclose($handle);
+    }else{
+      echo"<p>讀取文件有誤</p>;
+    }
+  }else{
+  echo"等待輸入</p>;
+  }
