@@ -1,3 +1,5 @@
+<?php
+include 'html名稱.html';
 //讀取 CSV文件內容
 $filePath = $file["tmp_name"];
 if(($handle = fopen($filePath,"r"))!==false){
@@ -27,3 +29,5 @@ if(($handle = fopen($filePath,"r"))!==false){
   }else{
   echo"等待輸入</p>;
   }
+ include 'html名稱.html';
+?>
