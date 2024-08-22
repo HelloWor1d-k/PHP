@@ -14,3 +14,37 @@ echo $a; //計算目標字串長度
 $b =substr(HelloPHP,1,2);
       //從索引1開始切割 切割長度為2
 
+
+
+# if else 用法   #htmlspecialchars防止 XSS
+ <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit'])) {
+            // 確保所有表單元素都已設定
+            if (isset($_POST['searchtxt']) && isset($_POST['replacetxt']) && isset($_POST['subjecttxt'])) {
+                // 獲取表單資料
+                $search_s = $_POST['searchtxt'];
+                $replace_s = $_POST['replacetxt'];
+                $subject_s = $_POST['subjecttxt'];
+
+                // 執行字串替換
+                $replacedText = str_replace($search_s, $replace_s, $subject_s);
+                if ($replacedText === $subject_s) {
+                    echo "<p>找不到指定的子字串來替換。</p>";
+                } else {
+                    // 顯示結果
+                    echo "<p>原始字串: " . htmlspecialchars($subject_s) . "</p>";
+                    echo "<p>被取代的字串是: " . htmlspecialchars($replacedText) . "</p>";
+
+
+# 使用PDO連接資料庫
+try { 						
+      $pdo = new PDO('mysql:host=localhost;dbname=dbname', 'root', '');
+      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+      // 寫入資料庫
+      $stmt = $pdo->prepare("INSERT INTO string_table (OriginalString, NewString) VALUES (:original, :new)");
+      $stmt->execute(['original' => $subject_s, 'new' => $replacedText]);
+
+         echo "<p>資料庫寫入成功！</p>";
+      } catch (PDOException $e) {
+        echo "<p>資料庫寫入失敗: " . $e->getMessage() . "</p>";
+      }
